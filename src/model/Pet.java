@@ -3,10 +3,12 @@ package model;
     public class Pet {
         private String petName;
         private String petAdressHouseNumber;
+        private String petAdressCity;
+        private String petAdressStreet;
         private PetType petType;
         private PetGender petGender;
-        private int petAge;
-        private int petWeight;
+        private String petAge;
+        private String petWeight;
         private String petBreed;
         public static final String NAO_INFORMADO = "Não Informado";
 
@@ -28,17 +30,17 @@ package model;
         }
         public void setPetTypeChoose(int escolha) {
             if (escolha==1){
-                setPetType(PetType.CACHORRO);
+                setPetType(PetType.DOG);
 
             }if(escolha==2){
-                setPetType(PetType.GATO);
+                setPetType(PetType.CAT);
             }
         }
         public void setPetGenderChoose(int escolha){
             if(escolha==1){
-                setPetGender(PetGender.MACHO);
+                setPetGender(PetGender.MALE);
             } if(escolha==2){
-                setPetGender(PetGender.FEMEA);
+                setPetGender(PetGender.FEMALE);
             }
 
         }
@@ -47,6 +49,14 @@ package model;
             this.petAdressHouseNumber=petAdressHouseNumber;
 
         }
+        public void setpetAdressCity(String petAdressCity){
+            this.petAdressCity = petAdressCity;
+        }
+
+        public void setPetAdressStreet(String petAdressStreet){
+            this.petAdressStreet = petAdressStreet;
+        }
+
         public String getPetName(){
             return petName;
         }
@@ -59,11 +69,17 @@ package model;
             this.petGender = petGender;
         }
 
-        public void setPetAge(int petAge) {
+        public void setPetAge(String petAge) {
+            if (petAge == null){
+                this.petAge = NAO_INFORMADO;
+            }
             this.petAge = petAge;
         }
 
-        public void setPetWeight(int petWeight) {
+        public void setPetWeight(String petWeight) {
+            if(petWeight == null ){
+                this.petWeight = NAO_INFORMADO;
+            }
             this.petWeight = petWeight;
         }
 

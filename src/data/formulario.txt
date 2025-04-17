@@ -1,8 +1,10 @@
 1 - Qual o nome do pet?
-2 - Qual o tipo do pet(Cachorro/Gato)?
-3 - Qual o sexo do animal?
+2 - Qual o tipo do pet(1 Para Cachorro e 2 Para gato)?
+3 - Qual o sexo do animal(1 Para Masculino e 2 Para Feminino)?
 4 - Sobre o endereço:
-Qual o número da casa?
+Informe o número da casa:
+Informe a cidade:
+Informe a Rua:
 5 - Qual a idade aproximada do pet?
 6 - Qual o peso aproximado do pet?
 7 - Qual a raça do pet? 
