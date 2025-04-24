@@ -6,4 +6,7 @@ public enum PetType {
     PetType(String tipo){
         this.tipo = tipo;
     }
+    public String getTypeName(){
+        return tipo;
+    }
 }

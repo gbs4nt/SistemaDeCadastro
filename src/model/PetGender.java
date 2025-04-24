@@ -7,4 +7,7 @@ public enum PetGender {
      PetGender(String genero){
         this.genero = genero;
     }
+    public String getGenderName(){
+        return genero;
+    }
 }

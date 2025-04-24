@@ -2,39 +2,42 @@ package app;
 
 import model.Pet;
 import repository.FileRepository;
+import services.PetEditor;
+import services.PetListService;
 import services.PetRegistrationService;
+import services.PetSearchService;
 import utils.PrintMenu;
 
+import java.io.FileNotFoundException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         PrintMenu print = new PrintMenu();
-        FileRepository arquivo = new FileRepository();
-        int option = print.printarMenu();
+
         PetRegistrationService register = new PetRegistrationService();
-        Pet pet = new Pet();
+        int option;
 
 
         do{
-            if(option<=0){
-                System.out.println("Inválido, tente novamente");
-                print.printarMenu();
-            }
-            if(option ==1){
-                register.registerPet();
-              
-                break;
+             option = print.printarMenu();
+
+             switch (option){
+                 case 1 -> register.registerPet();
+
+                 case 2 -> PetEditor.searchEditor();
+
+                 case 4 -> PetListService.listPets();
+
+                 case 5-> PetSearchService.searchService();
+
+                 case 6 -> {
+                     System.out.println("Saindo...");
+                     return;
+                 }
+
+                 default-> System.out.println("Inválido, tende novamente");
 
             }
         }while(option!=6);
-
-
-
-
-
-//       Pattern pattern = Pattern.compile("^[0-9]+$");
-
-
     }
-
-
 }

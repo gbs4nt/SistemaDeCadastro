@@ -2,6 +2,7 @@ package utils;
 
 import model.Pet;
 import model.PetGender;
+import model.PetType;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,7 +10,6 @@ import java.util.Scanner;
 import static java.lang.Double.parseDouble;
 
 public class ValidatorUtils  {
-    public static final String NAO_INFORMADO = "Não Informado";
     Scanner scanner = new Scanner(System.in);
     public String isValidName(Scanner scanner){
         try{
@@ -27,17 +27,18 @@ public class ValidatorUtils  {
     public int isValidType(Scanner scanner) {
         try {
             int validType = scanner.nextInt();
+            scanner.nextLine();
             if (validType == 1 || validType == 2) {
-
                 return validType;
             }else{
                 System.out.println("Please, enter 1 or 2.");
+
                 return isValidType(scanner);
             }
 
         } catch (InputMismatchException e) {
             System.out.println("Error: " + e.getMessage());
-            scanner.nextLine();
+
             return isValidType(scanner);
         }
 
@@ -45,8 +46,14 @@ public class ValidatorUtils  {
     }
     public int isValidGender(Scanner scanner) {
 
+
+                String input = scanner.nextLine();
+                if(input.isEmpty()){
+                    return 0;
+                }
+
         try{
-        int validGender = scanner.nextInt();
+                int validGender =Integer.parseInt(input);
         if (validGender == 1 || validGender == 2) {
 
             return validGender;
@@ -63,6 +70,9 @@ public class ValidatorUtils  {
     public String isValidHouseNumber(Scanner scanner){
         try{
             String number = scanner.nextLine();
+            if(number.trim().isEmpty()){
+                return null;
+            }
             if(!number.matches("[0-9]+")){
                 throw new IllegalArgumentException("Invalid information, try again.");
             }else{
@@ -76,8 +86,12 @@ public class ValidatorUtils  {
     }
 
     public String isValidCity(Scanner scanner){
+        String city = scanner.nextLine();
+        if(city.isEmpty()){
+            return null;
+        }
         try{
-            String city = scanner.nextLine();
+
             if(!city.matches("[a-zA-Z ]+")){
                 throw new IllegalArgumentException("Just letters and spaces , please.");
             }else{
@@ -89,10 +103,14 @@ public class ValidatorUtils  {
         }
     }
     public String isValidStreet(Scanner scanner){
+        String street = scanner.nextLine();
+        if(street.isEmpty()){
+            return null;
+        }
             try{
-                String street = scanner.nextLine();
-                if(!street.matches("[a-zA-Z ]+" )){
-                    throw new IllegalArgumentException("Just Letters and spaces, please");
+
+                if(!street.matches("[a-zA-Z0-9 ]+" )){
+                    throw new IllegalArgumentException("Just Letters, numbers and spaces, please");
                 }else{
                     return street;
                 }
@@ -101,47 +119,52 @@ public class ValidatorUtils  {
                 return isValidStreet(scanner);
             }
     }
-    public String isValidAge(Scanner scanner){
+    public Double isValidAge(Scanner scanner){
+        double age = scanner.nextDouble();
+        scanner.nextLine();
         try{
-            String age = scanner.nextLine();
-
-            if(parseDouble(age)>20){
+            if(age>20){
                 System.out.println("Values above 20 isn't allowed.");
                 return isValidAge(scanner);
 
             }
-            if(age.contains(",")){
-                age.replace(",", ".");
-            }  return age;
+
+
+
 
         }catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
             return isValidAge(scanner);
         }
-
+        return age;
     }
 
     public String isValidWeight(Scanner scanner){
         String weight = scanner.nextLine();
-            try {
-                boolean isValid = parseDouble(weight)  > 0.5 && parseDouble(weight) < 60;
-                if(!isValid){
+
+        if(weight.isEmpty()){
+            return null;
+        }
+        try {
+            if(weight.contains(",")){
+                weight = weight.replace(",", ".");
+            }
+            boolean isValid = parseDouble(weight)  > 0.5 && parseDouble(weight) < 60;
+            if(!isValid){
                     System.out.println("The weight isn't allowed to be above 60 and less than 0.5 ");
                     return isValidWeight(scanner);
                 }
-                if(weight.contains(",")){
-                   weight.replace(",", ".");
-                }
-            }
+        }
             catch (Exception e) {
-                System.out.println("Error catch : " + e.getMessage());
+                System.out.println("Error  : " + e.getMessage());
             }
         return weight;
-
-
     }
     public String isValidBreed(Scanner scanner){
         String breed = scanner.nextLine();
+        if(breed.isEmpty()){
+            return null;
+        }
         try{
             boolean isValid = breed.matches("[a-zA-Z ]+");
             if(!isValid){
@@ -153,10 +176,7 @@ public class ValidatorUtils  {
             System.out.println("Error: "+e.getMessage());
         }
         return breed;
-
     }
-
-
 }
 
 

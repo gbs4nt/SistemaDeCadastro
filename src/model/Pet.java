@@ -6,11 +6,29 @@ package model;
         private String petAdressCity;
         private String petAdressStreet;
         private PetType petType;
+        private int PetTypeChoose;
+        private int PetGenderChoose;
         private PetGender petGender;
-        private String petAge;
+        private double petAge;
         private String petWeight;
         private String petBreed;
         public static final String NAO_INFORMADO = "Não Informado";
+         public Pet(){
+
+        }
+
+        public Pet(String petName, String petAdressHouseNumber, String petAdressCity, String petAdressStreet,  int PetTypeChoose, int setPetGenderChoose,  double petAge, String petWeight, String petBreed) {
+            this.petName = petName;
+            this.petAdressHouseNumber = petAdressHouseNumber;
+            this.petAdressCity = petAdressCity;
+            this.petAdressStreet = petAdressStreet;
+            this.petType = petType;
+            this.PetTypeChoose = PetTypeChoose;
+            this.petGender = petGender;
+            this.petAge = petAge;
+            this.petWeight = petWeight;
+            this.petBreed = petBreed;
+        }
 
         public String setPetName(String petName) {
             if(petName== null || petName.trim().isEmpty()) {
@@ -28,14 +46,7 @@ package model;
         public void setPetType(PetType petType) {
             this.petType = petType;
         }
-        public void setPetTypeChoose(int escolha) {
-            if (escolha==1){
-                setPetType(PetType.DOG);
 
-            }if(escolha==2){
-                setPetType(PetType.CAT);
-            }
-        }
         public void setPetGenderChoose(int escolha){
             if(escolha==1){
                 setPetGender(PetGender.MALE);
@@ -45,15 +56,54 @@ package model;
 
         }
         public void setAdressHouseNumber(String petAdressHouseNumber){
+            if(petAdressHouseNumber== null){
+                this.petAdressHouseNumber= NAO_INFORMADO;
+            }
 
             this.petAdressHouseNumber=petAdressHouseNumber;
 
         }
         public void setpetAdressCity(String petAdressCity){
+            if(petAdressCity == null){
+                this.petAdressCity = NAO_INFORMADO;
+            }
             this.petAdressCity = petAdressCity;
         }
 
+        public String getPetAdressHouseNumber() {
+            return petAdressHouseNumber;
+        }
+
+        public String getPetAdressCity() {
+            return petAdressCity;
+        }
+
+        public String getPetAdressStreet() {
+            return petAdressStreet;
+        }
+
+        public PetType getPetType() {
+            return petType;
+        }
+
+        public PetGender getPetGender() {
+            return petGender;
+        }
+
+        public double getPetAge() {
+            return petAge;
+        }
+
+        public String getPetWeight() {
+            return petWeight;
+        }
+
+        public String getPetBreed() {
+            return petBreed;
+        }
+
         public void setPetAdressStreet(String petAdressStreet){
+
             this.petAdressStreet = petAdressStreet;
         }
 
@@ -61,19 +111,12 @@ package model;
             return petName;
         }
 
-
-
-
-
         public void setPetGender(PetGender petGender) {
             this.petGender = petGender;
         }
 
-        public void setPetAge(String petAge) {
-            if (petAge == null){
-                this.petAge = NAO_INFORMADO;
-            }
-            this.petAge = petAge;
+        public void setPetAge(double petAge) {
+           this.petAge = petAge;
         }
 
         public void setPetWeight(String petWeight) {
@@ -85,5 +128,10 @@ package model;
 
         public void setPetBreed(String petBreed) {
             this.petBreed = petBreed;
+        }
+
+        public PetType getTypeName() {
+            return petType;
+
         }
     }
