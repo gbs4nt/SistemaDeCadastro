@@ -1,9 +1,0 @@
-nome: t t
-Tipo: Cachorro
-Gênero: MALE
-Número da casa: Não informado
-Cidade: yes
-Rua: no
-Idade: 12.0 anos
-Não informado
-Não informado

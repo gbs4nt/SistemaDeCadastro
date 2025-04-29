@@ -19,7 +19,7 @@ public class ValidatorUtils  {
 
 
         }catch(IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage() + " try again");
+            System.out.println("Error: " + e.getMessage() + " tente novamente");
             return isValidName(scanner);
         }
         }
@@ -31,7 +31,7 @@ public class ValidatorUtils  {
             if (validType == 1 || validType == 2) {
                 return validType;
             }else{
-                System.out.println("Please, enter 1 or 2.");
+                System.out.println("Por favor, digite 1 ou 2.");
 
                 return isValidType(scanner);
             }
@@ -58,7 +58,7 @@ public class ValidatorUtils  {
 
             return validGender;
         }else {
-            System.out.println("Invalid! Type a valid number.");
+            System.out.println("Inválido! Digite um número.");
             scanner.nextLine();
             return isValidGender(scanner);
         }
@@ -74,7 +74,7 @@ public class ValidatorUtils  {
                 return null;
             }
             if(!number.matches("[0-9]+")){
-                throw new IllegalArgumentException("Invalid information, try again.");
+                throw new IllegalArgumentException("Informação inválida, tente novamente..");
             }else{
                 return number;
             }
@@ -93,7 +93,7 @@ public class ValidatorUtils  {
         try{
 
             if(!city.matches("[a-zA-Z ]+")){
-                throw new IllegalArgumentException("Just letters and spaces , please.");
+                throw new IllegalArgumentException("Apenas números,espaços e letras, por favor");
             }else{
                 return city;
             }
@@ -110,7 +110,7 @@ public class ValidatorUtils  {
             try{
 
                 if(!street.matches("[a-zA-Z0-9 ]+" )){
-                    throw new IllegalArgumentException("Just Letters, numbers and spaces, please");
+                    throw new IllegalArgumentException("Apenas números,espaços e letras, por favor");
                 }else{
                     return street;
                 }
@@ -124,14 +124,9 @@ public class ValidatorUtils  {
         scanner.nextLine();
         try{
             if(age>20){
-                System.out.println("Values above 20 isn't allowed.");
+                System.out.println("Valores acima de 20 não são permitidos.");
                 return isValidAge(scanner);
-
             }
-
-
-
-
         }catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
             return isValidAge(scanner);
@@ -141,7 +136,6 @@ public class ValidatorUtils  {
 
     public String isValidWeight(Scanner scanner){
         String weight = scanner.nextLine();
-
         if(weight.isEmpty()){
             return null;
         }
@@ -151,7 +145,7 @@ public class ValidatorUtils  {
             }
             boolean isValid = parseDouble(weight)  > 0.5 && parseDouble(weight) < 60;
             if(!isValid){
-                    System.out.println("The weight isn't allowed to be above 60 and less than 0.5 ");
+                    System.out.println("O peso não é permitido ser maior que 60 e menor que 0.5 ");
                     return isValidWeight(scanner);
                 }
         }
@@ -168,7 +162,7 @@ public class ValidatorUtils  {
         try{
             boolean isValid = breed.matches("[a-zA-Z ]+");
             if(!isValid){
-                System.out.println("Just letters, please.");
+                System.out.println("Apenas letras, por favor.");
                 return isValidBreed(scanner);
             }
 

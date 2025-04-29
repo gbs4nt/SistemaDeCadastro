@@ -1,11 +1,6 @@
 package app;
 
-import model.Pet;
-import repository.FileRepository;
-import services.PetEditor;
-import services.PetListService;
-import services.PetRegistrationService;
-import services.PetSearchService;
+import services.*;
 import utils.PrintMenu;
 
 import java.io.FileNotFoundException;
@@ -25,6 +20,8 @@ public class Main {
                  case 1 -> register.registerPet();
 
                  case 2 -> PetEditor.searchEditor();
+
+                 case 3 -> PetDelete.petDeleteSearchType();
 
                  case 4 -> PetListService.listPets();
 

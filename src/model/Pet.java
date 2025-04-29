@@ -17,13 +17,12 @@ package model;
 
         }
 
-        public Pet(String petName, String petAdressHouseNumber, String petAdressCity, String petAdressStreet,  int PetTypeChoose, int setPetGenderChoose,  double petAge, String petWeight, String petBreed) {
+        public Pet(String petName, String petAdressHouseNumber, String petAdressCity, String petAdressStreet,  PetType petType, PetGender petGender,  double petAge, String petWeight, String petBreed) {
             this.petName = petName;
             this.petAdressHouseNumber = petAdressHouseNumber;
             this.petAdressCity = petAdressCity;
             this.petAdressStreet = petAdressStreet;
             this.petType = petType;
-            this.PetTypeChoose = PetTypeChoose;
             this.petGender = petGender;
             this.petAge = petAge;
             this.petWeight = petWeight;
@@ -56,11 +55,7 @@ package model;
 
         }
         public void setAdressHouseNumber(String petAdressHouseNumber){
-            if(petAdressHouseNumber== null){
-                this.petAdressHouseNumber= NAO_INFORMADO;
-            }
-
-            this.petAdressHouseNumber=petAdressHouseNumber;
+             this.petAdressHouseNumber=petAdressHouseNumber;
 
         }
         public void setpetAdressCity(String petAdressCity){
