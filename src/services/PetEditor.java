@@ -157,7 +157,10 @@ public class PetEditor {
 
         System.out.println("Escolha qual atributo você deseja alterar do(a) pet " + arquivoEscolhido.getName());
         String campo = scanner.nextLine();
-        if(campo.equalsIgnoreCase("gênero")|| campo.equalsIgnoreCase("tipo"))
+        if(campo.equalsIgnoreCase("gênero")|| campo.equalsIgnoreCase("tipo")){
+            System.out.println("Não é possível mudar o gênero e/ou tipo do pet.");
+            return;
+        }
         System.out.println("Agora, escolha o que deseja mudar no campo " + campo);
         String valor = scanner.nextLine();
 
